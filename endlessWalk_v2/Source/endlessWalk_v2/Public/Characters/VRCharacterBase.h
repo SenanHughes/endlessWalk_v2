@@ -6,6 +6,8 @@
 #include "GameFramework/Character.h"
 #include "VRCharacterBase.generated.h"
 
+class UCameraComponent;
+
 UCLASS()
 class ENDLESSWALK_V2_API AVRCharacterBase : public ACharacter
 {
@@ -16,6 +18,12 @@ public:
 
 protected:
 	virtual void BeginPlay() override;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	TObjectPtr<UCameraComponent> Camera;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	TObjectPtr<USceneComponent> Origin;
 
 private:	
 
